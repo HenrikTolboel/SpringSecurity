@@ -4,6 +4,8 @@ package com.example.springSecurity.web;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 @RestController
 public class webController {
 
@@ -13,7 +15,8 @@ public class webController {
     }
 
     @RequestMapping("/about")
-    public String about() {
+    public String about(Principal principal) {
+        String name = principal.getName();
         return "about page!";
     }
 
