@@ -8,8 +8,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>SpringSecurity</name>
+	<description>Spring Boot Ping Federate OpenID-Connect demo using Web app Authorisation Code flow</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -59,13 +59,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-resource-server -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-resource-server</artifactId>
-			<version>5.1.2.RELEASE</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-jose -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -73,6 +66,12 @@
 			<version>5.1.2.RELEASE</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth.boot/spring-security-oauth2-autoconfigure -->
+		<dependency>
+			<groupId>org.springframework.security.oauth.boot</groupId>
+			<artifactId>spring-security-oauth2-autoconfigure</artifactId>
+			<version>2.1.1.RELEASE</version>
+		</dependency>
 
 	</dependencies>
 
