@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/callback"))
                 .and()
                 .authorizeRequests()
-                // .antMatchers("/","/index*").permitAll()
+                .antMatchers("/","/index*", "/logout").permitAll()
                 .anyRequest().authenticated()
         ;
         // @formatter:on

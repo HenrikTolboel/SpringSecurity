@@ -28,11 +28,10 @@ public class OpenIdConnectConfig {
         final AuthorizationCodeResourceDetails details = new AuthorizationCodeResourceDetails();
         details.setClientId(client.getClientId());
         details.setClientSecret(client.getClientSecret());
-       details.setAccessTokenUri(jwtProvider.getToken_endpoint());
+        details.setAccessTokenUri(jwtProvider.getToken_endpoint());
         details.setUserAuthorizationUri(jwtProvider.getAuthorization_endpoint());
         details.setScope(Arrays.asList("openid", "profile", "email"));
         details.setPreEstablishedRedirectUri(client.getRedirectUri());
-        //details.setGrantType("authorization_code");
         details.setUseCurrentUri(false);
         return details;
     }

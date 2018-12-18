@@ -20,8 +20,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
-import java.util.Map;
+import java.time.Instant;
 
 public class OpenIdConnectFilter extends AbstractAuthenticationProcessingFilter {
 
@@ -43,7 +42,7 @@ public class OpenIdConnectFilter extends AbstractAuthenticationProcessingFilter 
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, IOException, ServletException {
+            throws AuthenticationException {
 
 /**
  *       Performs actual authentication.
@@ -76,7 +75,7 @@ public class OpenIdConnectFilter extends AbstractAuthenticationProcessingFilter 
 
         Jwt jwt = jwtDecoder.decode(idToken);
 
-        //verify(jwt);
+        validate(jwt);
 
         final OpenIdConnectUserDetails user = new OpenIdConnectUserDetails(jwt.getClaims(), accessToken);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
@@ -85,13 +84,12 @@ public class OpenIdConnectFilter extends AbstractAuthenticationProcessingFilter 
         return usernamePasswordAuthenticationToken;
     }
 
-    private void verify(Jwt jwt) throws AuthenticationException {
-        int exp = (int) jwt.getClaims().get("exp");
-        Date expireDate = new Date(exp * 1000L);
-        Date now = new Date();
-        if (expireDate.before(now) ||
+    private void validate(Jwt jwt) throws AuthenticationException {
+        Instant exp = (Instant) jwt.getClaims().get("exp");
+
+        if (exp.isBefore(Instant.now()) ||
                 !jwt.getClaims().get("iss").equals(jwtProvider.getIssuer()) ||
-                !jwt.getClaims().get("aud").equals(client.getClientId())) {
+                !jwt.getAudience().contains(client.getClientId())) {
             throw new RuntimeException("Invalid claims");
         }
     }
