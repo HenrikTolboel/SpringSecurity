@@ -1,4 +1,4 @@
-package com.example.springSecurity.config;
+package com.example.springsecurity.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,7 +1,7 @@
-package com.example.springSecurity.security;
+package com.example.springsecurity.security;
 
-import com.example.springSecurity.config.Client;
-import com.example.springSecurity.config.JwtProvider;
+import com.example.springsecurity.config.Client;
+import com.example.springsecurity.config.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,4 +43,3 @@ public class OpenIdConnectConfig {
     }
 
 }
-

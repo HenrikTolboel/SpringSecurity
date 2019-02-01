@@ -1,7 +1,7 @@
-package com.example.springSecurity.security;
+package com.example.springsecurity.security;
 
-import com.example.springSecurity.config.Client;
-import com.example.springSecurity.config.JwtProvider;
+import com.example.springsecurity.config.Client;
+import com.example.springsecurity.config.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -16,10 +16,8 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.time.Instant;
 
 public class OpenIdConnectFilter extends AbstractAuthenticationProcessingFilter {

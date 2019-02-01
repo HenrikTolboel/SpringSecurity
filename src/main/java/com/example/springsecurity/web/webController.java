@@ -1,8 +1,8 @@
-package com.example.springSecurity.web;
+package com.example.springsecurity.web;
 
 
-import com.example.springSecurity.config.JwtProvider;
-import com.example.springSecurity.security.OpenIdConnectUserDetails;
+import com.example.springsecurity.config.JwtProvider;
+import com.example.springsecurity.security.OpenIdConnectUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,7 +28,6 @@ public class webController {
 
     @GetMapping("/secure")
     public String secure(Principal principal) {
-        //String name = principal.getName();
 
         UsernamePasswordAuthenticationToken user = (UsernamePasswordAuthenticationToken) principal;
 
